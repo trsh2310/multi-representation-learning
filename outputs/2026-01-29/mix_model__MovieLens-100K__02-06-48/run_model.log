@@ -1,0 +1,297 @@
+[2026-01-29 02:06:48,095][__main__][INFO] - Training config:
+dataset:
+  _target_: src.datasets.RecSysDataset
+  name: MovieLens-100K
+  url: https://disk.360.yandex.ru/d/cUBZLP_OoLankw?path=/MovieLens-100K
+model:
+  _target_: src.models.joint_sasrec_ultragcn.JointSASRecUltraGCN
+  name: mix_model
+  seed: 42
+  device: cuda
+  hidden_size: 128
+  lr: 0.001
+  lambda_reg: 0.0001
+  n_epochs: 1000
+  lambda_sas: 1.0
+  lambda_ultra: 0.1
+  seq_len: 200
+  num_blocks: 3
+  num_heads: 2
+  dropout: 0.2
+  s: 1024
+  alpha: 1.0
+  beta: 16.0
+  bucket_size_y: 256
+  mix_x: true
+  batch_size_sas: 256
+  log_step: 100
+  embedding_dim: 128
+  w1: 1.0e-07
+  w2: 1.0
+  w3: 1.0e-07
+  w4: 1.0
+  negative_weight: 200
+  negative_num: 200
+  gamma: 0.001
+  num_neighbors: 10
+metrics:
+- _target_: src.metrics.NDCGMetric
+  k: 20
+- _target_: src.metrics.NDCGMetric
+  k: 10
+- _target_: src.metrics.NDCGMetric
+  k: 5
+- _target_: src.metrics.RecallMetric
+  k: 20
+- _target_: src.metrics.RecallMetric
+  k: 10
+- _target_: src.metrics.RecallMetric
+  k: 5
+- _target_: src.metrics.CoverageMetric
+  k: 20
+- _target_: src.metrics.CoverageMetric
+  k: 10
+- _target_: src.metrics.CoverageMetric
+  k: 5
+seed: 42
+max_top_n: 20
+
+
+[2026-01-29 02:06:48,097][__main__][INFO] - Model init: mix_model
+
+[2026-01-29 02:06:48,212][__main__][INFO] - Start training...
+
+[2026-01-29 02:20:07,557][__main__][INFO] - Training completed.
+
+[2026-01-29 02:20:08,414][__main__][INFO] - Final metrics: {
+  "val/ndcg@20": 0.0660331880671268,
+  "val/ndcg@10": 0.0452228129925303,
+  "val/ndcg@5": 0.03353961475059439,
+  "val/recall@20": 0.17777777777777778,
+  "val/recall@10": 0.0962962962962963,
+  "val/recall@5": 0.05925925925925926,
+  "val/coverage@20": 0.5114899925871016,
+  "val/coverage@10": 0.35804299481097107,
+  "val/coverage@5": 0.23276501111934766,
+  "additional_cfg_params": {
+    "num_epochs": 1000
+  }
+}
+
+[2026-01-29 02:20:08,423][__main__][INFO] - Training config:
+dataset:
+  _target_: src.datasets.RecSysDataset
+  name: MovieLens-100K
+  url: https://disk.360.yandex.ru/d/cUBZLP_OoLankw?path=/MovieLens-100K
+model:
+  _target_: src.models.joint_sasrec_ultragcn.JointSASRecUltraGCN
+  name: mix_model
+  seed: 42
+  device: cuda
+  hidden_size: 128
+  lr: 0.001
+  lambda_reg: 0.0001
+  n_epochs: 1000
+  lambda_sas: 1.0
+  lambda_ultra: 0.1
+  seq_len: 200
+  num_blocks: 3
+  num_heads: 2
+  dropout: 0.2
+  s: 1024
+  alpha: 1.0
+  beta: 16.0
+  bucket_size_y: 256
+  mix_x: true
+  batch_size_sas: 256
+  log_step: 100
+  embedding_dim: 128
+  w1: 1.0e-07
+  w2: 1.0
+  w3: 1.0e-07
+  w4: 1.0
+  negative_weight: 200
+  negative_num: 200
+  gamma: 0.001
+  num_neighbors: 10
+metrics:
+- _target_: src.metrics.NDCGMetric
+  k: 20
+- _target_: src.metrics.NDCGMetric
+  k: 10
+- _target_: src.metrics.NDCGMetric
+  k: 5
+- _target_: src.metrics.RecallMetric
+  k: 20
+- _target_: src.metrics.RecallMetric
+  k: 10
+- _target_: src.metrics.RecallMetric
+  k: 5
+- _target_: src.metrics.CoverageMetric
+  k: 20
+- _target_: src.metrics.CoverageMetric
+  k: 10
+- _target_: src.metrics.CoverageMetric
+  k: 5
+seed: 42
+max_top_n: 20
+
+
+[2026-01-29 02:20:08,426][__main__][INFO] - Model init: mix_model
+
+[2026-01-29 02:20:08,974][__main__][INFO] - Start training...
+
+[2026-01-29 02:34:21,385][__main__][INFO] - Training completed.
+
+[2026-01-29 02:34:35,447][__main__][INFO] - Holdout metrics: {
+  "holdout_0": {
+    "ndcg@20": 0.09989772097617602,
+    "ndcg@10": 0.07839148784094263,
+    "ndcg@5": 0.058678008812504415,
+    "recall@20": 0.23958333333333334,
+    "recall@10": 0.15625,
+    "recall@5": 0.09375,
+    "coverage@20": 0.5433654558932542,
+    "coverage@10": 0.40696812453669384,
+    "coverage@5": 0.29132690882134915
+  },
+  "holdout_1": {
+    "ndcg@20": 0.06958536608381186,
+    "ndcg@10": 0.0495712861157039,
+    "ndcg@5": 0.04324036369477822,
+    "recall@20": 0.17006802721088435,
+    "recall@10": 0.09183673469387756,
+    "recall@5": 0.07142857142857142,
+    "coverage@20": 0.5478131949592291,
+    "coverage@10": 0.41363973313565605,
+    "coverage@5": 0.2994810971089696
+  },
+  "holdout_2": {
+    "ndcg@20": 0.08880534150064566,
+    "ndcg@10": 0.06097275637452846,
+    "ndcg@5": 0.04592151174379442,
+    "recall@20": 0.23367697594501718,
+    "recall@10": 0.12371134020618557,
+    "recall@5": 0.07560137457044673,
+    "coverage@20": 0.5270570793180134,
+    "coverage@10": 0.38843587842846555,
+    "coverage@5": 0.2824314306893996
+  },
+  "holdout_3": {
+    "ndcg@20": 0.08480615166396813,
+    "ndcg@10": 0.06727207750423855,
+    "ndcg@5": 0.040540365348819975,
+    "recall@20": 0.2264808362369338,
+    "recall@10": 0.156794425087108,
+    "recall@5": 0.07317073170731707,
+    "coverage@20": 0.5492957746478874,
+    "coverage@10": 0.3973313565604151,
+    "coverage@5": 0.28687916975537436
+  },
+  "holdout_4": {
+    "ndcg@20": 0.0755282256470383,
+    "ndcg@10": 0.05717654721379338,
+    "ndcg@5": 0.03464315651149354,
+    "recall@20": 0.2041522491349481,
+    "recall@10": 0.1314878892733564,
+    "recall@5": 0.06228373702422145,
+    "coverage@20": 0.5507783543365455,
+    "coverage@10": 0.40029651593773163,
+    "coverage@5": 0.28910303928836173
+  },
+  "holdout_5": {
+    "ndcg@20": 0.0781933719673079,
+    "ndcg@10": 0.05152999583909242,
+    "ndcg@5": 0.03195617719264224,
+    "recall@20": 0.22184300341296928,
+    "recall@10": 0.11604095563139932,
+    "recall@5": 0.05460750853242321,
+    "coverage@20": 0.5344699777613047,
+    "coverage@10": 0.38028169014084506,
+    "coverage@5": 0.2765011119347665
+  },
+  "holdout_6": {
+    "ndcg@20": 0.06961916988647344,
+    "ndcg@10": 0.049836582611169744,
+    "ndcg@5": 0.03641533580073269,
+    "recall@20": 0.1780821917808219,
+    "recall@10": 0.09931506849315068,
+    "recall@5": 0.05821917808219178,
+    "coverage@20": 0.5322461082283173,
+    "coverage@10": 0.39807264640474427,
+    "coverage@5": 0.2824314306893996
+  },
+  "holdout_7": {
+    "ndcg@20": 0.08662498442221978,
+    "ndcg@10": 0.06453140140459286,
+    "ndcg@5": 0.05029474109528031,
+    "recall@20": 0.2150170648464164,
+    "recall@10": 0.12627986348122866,
+    "recall@5": 0.08191126279863481,
+    "coverage@20": 0.5433654558932542,
+    "coverage@10": 0.3951074870274277,
+    "coverage@5": 0.2809488510007413
+  },
+  "holdout_8": {
+    "ndcg@20": 0.08434840099856822,
+    "ndcg@10": 0.05440790504392314,
+    "ndcg@5": 0.04101256609834572,
+    "recall@20": 0.2361111111111111,
+    "recall@10": 0.11458333333333333,
+    "recall@5": 0.07291666666666667,
+    "coverage@20": 0.5633802816901409,
+    "coverage@10": 0.4084507042253521,
+    "coverage@5": 0.28687916975537436
+  },
+  "holdout_9": {
+    "ndcg@20": 0.07634374775224718,
+    "ndcg@10": 0.051541000893289675,
+    "ndcg@5": 0.03636040850856401,
+    "recall@20": 0.2033898305084746,
+    "recall@10": 0.10508474576271186,
+    "recall@5": 0.0576271186440678,
+    "coverage@20": 0.541882876204596,
+    "coverage@10": 0.4047442550037065,
+    "coverage@5": 0.28465530022238694
+  }
+}
+
+[2026-01-29 02:34:35,447][__main__][INFO] - Final metrics: {
+  "test/ndcg@20": 0.08137524808984566,
+  "test/ndcg@20_std": 0.009388488543744545,
+  "test/ndcg@20_ci_low": 0.07465912797328558,
+  "test/ndcg@20_ci_high": 0.08809136820640573,
+  "test/ndcg@10": 0.058523104084127475,
+  "test/ndcg@10_std": 0.009341601984484003,
+  "test/ndcg@10_ci_low": 0.05184052459153246,
+  "test/ndcg@10_ci_high": 0.06520568357672249,
+  "test/ndcg@5": 0.04190626348069556,
+  "test/ndcg@5_std": 0.008061486952880286,
+  "test/ndcg@5_ci_low": 0.03613942311641775,
+  "test/ndcg@5_ci_high": 0.04767310384497337,
+  "test/recall@20": 0.21284046235209103,
+  "test/recall@20_std": 0.023956269781386277,
+  "test/recall@20_ci_low": 0.1957031793222566,
+  "test/recall@20_ci_high": 0.22997774538192547,
+  "test/recall@10": 0.12213843559623513,
+  "test/recall@10_std": 0.021847604760968697,
+  "test/recall@10_ci_low": 0.10650960065117243,
+  "test/recall@10_ci_high": 0.13776727054129784,
+  "test/recall@5": 0.07015161494545409,
+  "test/recall@5_std": 0.01222944067926239,
+  "test/recall@5_ci_low": 0.061403200099169004,
+  "test/recall@5_ci_high": 0.07890002979173918,
+  "test/coverage@20": 0.5433654558932542,
+  "test/coverage@20_std": 0.010442573070973774,
+  "test/coverage@20_ci_low": 0.5358952891306453,
+  "test/coverage@20_ci_high": 0.5508356226558632,
+  "test/coverage@10": 0.39933283914010376,
+  "test/coverage@10_std": 0.009896520190256376,
+  "test/coverage@10_ci_low": 0.39225329507675083,
+  "test/coverage@10_ci_high": 0.4064123832034567,
+  "test/coverage@5": 0.2860637509266123,
+  "test/coverage@5_std": 0.006361958108931742,
+  "test/coverage@5_ci_low": 0.2815126802577794,
+  "test/coverage@5_ci_high": 0.29061482159544516
+}
+

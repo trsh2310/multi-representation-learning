@@ -1,0 +1,266 @@
+[2026-01-27 22:06:54,359][__main__][INFO] - Training config:
+dataset:
+  _target_: src.datasets.RecSysDataset
+  name: MovieLens-100K
+  url: https://disk.360.yandex.ru/d/cUBZLP_OoLankw?path=/MovieLens-100K
+model:
+  _target_: src.models.SASRecModel
+  name: sasrec
+  seed: 42
+  device: cuda
+  lr: 0.001
+  n_epochs: 1000
+  batch_size: 256
+  hidden_size: 64
+  num_blocks: 3
+  num_heads: 2
+  dropout: 0.2
+  seq_len: 200
+  s: 1024
+  alpha: 1.0
+  beta: 16.0
+  bucket_size_y: 256
+metrics:
+- _target_: src.metrics.NDCGMetric
+  k: 20
+- _target_: src.metrics.NDCGMetric
+  k: 10
+- _target_: src.metrics.NDCGMetric
+  k: 5
+- _target_: src.metrics.RecallMetric
+  k: 20
+- _target_: src.metrics.RecallMetric
+  k: 10
+- _target_: src.metrics.RecallMetric
+  k: 5
+- _target_: src.metrics.CoverageMetric
+  k: 20
+- _target_: src.metrics.CoverageMetric
+  k: 10
+- _target_: src.metrics.CoverageMetric
+  k: 5
+seed: 42
+max_top_n: 20
+
+
+[2026-01-27 22:06:54,360][__main__][INFO] - Model init: sasrec
+
+[2026-01-27 22:06:54,477][__main__][INFO] - Start training...
+
+[2026-01-27 22:18:25,442][__main__][INFO] - Training completed.
+
+[2026-01-27 22:18:26,243][__main__][INFO] - Final metrics: {
+  "val/ndcg@20": 0.055187935622779453,
+  "val/ndcg@10": 0.03456726496981527,
+  "val/ndcg@5": 0.02976135230226666,
+  "val/recall@20": 0.14074074074074075,
+  "val/recall@10": 0.05925925925925926,
+  "val/recall@5": 0.044444444444444446,
+  "val/coverage@20": 0.5871015567086731,
+  "val/coverage@10": 0.42105263157894735,
+  "val/coverage@5": 0.2742772424017791
+}
+
+[2026-01-27 22:18:26,251][__main__][INFO] - Training config:
+dataset:
+  _target_: src.datasets.RecSysDataset
+  name: MovieLens-100K
+  url: https://disk.360.yandex.ru/d/cUBZLP_OoLankw?path=/MovieLens-100K
+model:
+  _target_: src.models.SASRecModel
+  name: sasrec
+  seed: 42
+  device: cuda
+  lr: 0.001
+  n_epochs: 1000
+  batch_size: 256
+  hidden_size: 64
+  num_blocks: 3
+  num_heads: 2
+  dropout: 0.2
+  seq_len: 200
+  s: 1024
+  alpha: 1.0
+  beta: 16.0
+  bucket_size_y: 256
+metrics:
+- _target_: src.metrics.NDCGMetric
+  k: 20
+- _target_: src.metrics.NDCGMetric
+  k: 10
+- _target_: src.metrics.NDCGMetric
+  k: 5
+- _target_: src.metrics.RecallMetric
+  k: 20
+- _target_: src.metrics.RecallMetric
+  k: 10
+- _target_: src.metrics.RecallMetric
+  k: 5
+- _target_: src.metrics.CoverageMetric
+  k: 20
+- _target_: src.metrics.CoverageMetric
+  k: 10
+- _target_: src.metrics.CoverageMetric
+  k: 5
+seed: 42
+max_top_n: 20
+
+
+[2026-01-27 22:18:26,252][__main__][INFO] - Model init: sasrec
+
+[2026-01-27 22:18:26,779][__main__][INFO] - Start training...
+
+[2026-01-27 22:29:25,616][__main__][INFO] - Training completed.
+
+[2026-01-27 22:29:39,681][__main__][INFO] - Holdout metrics: {
+  "holdout_0": {
+    "ndcg@20": 0.08425045170301332,
+    "ndcg@10": 0.060810431645350084,
+    "ndcg@5": 0.04154326737112315,
+    "recall@20": 0.2222222222222222,
+    "recall@10": 0.1284722222222222,
+    "recall@5": 0.06944444444444445,
+    "coverage@20": 0.6397331356560415,
+    "coverage@10": 0.4988880652335063,
+    "coverage@5": 0.36767976278724984
+  },
+  "holdout_1": {
+    "ndcg@20": 0.07403496577480685,
+    "ndcg@10": 0.0540052424880794,
+    "ndcg@5": 0.036626995865407526,
+    "recall@20": 0.19727891156462585,
+    "recall@10": 0.11904761904761904,
+    "recall@5": 0.06462585034013606,
+    "coverage@20": 0.6271312083024463,
+    "coverage@10": 0.4788732394366197,
+    "coverage@5": 0.34099332839140106
+  },
+  "holdout_2": {
+    "ndcg@20": 0.0965654527447491,
+    "ndcg@10": 0.08377335276530203,
+    "ndcg@5": 0.060438740983412946,
+    "recall@20": 0.21993127147766323,
+    "recall@10": 0.16838487972508592,
+    "recall@5": 0.09621993127147767,
+    "coverage@20": 0.6278724981467754,
+    "coverage@10": 0.4855448480355819,
+    "coverage@5": 0.3513713862120089
+  },
+  "holdout_3": {
+    "ndcg@20": 0.09831095328846258,
+    "ndcg@10": 0.0719268253561769,
+    "ndcg@5": 0.05359402082646436,
+    "recall@20": 0.24390243902439024,
+    "recall@10": 0.13937282229965156,
+    "recall@5": 0.08013937282229965,
+    "coverage@20": 0.6197183098591549,
+    "coverage@10": 0.48851000741289846,
+    "coverage@5": 0.35804299481097107
+  },
+  "holdout_4": {
+    "ndcg@20": 0.08109602167330579,
+    "ndcg@10": 0.06244742819020455,
+    "ndcg@5": 0.04938382097760944,
+    "recall@20": 0.20761245674740483,
+    "recall@10": 0.1314878892733564,
+    "recall@5": 0.08996539792387544,
+    "coverage@20": 0.6426982950333581,
+    "coverage@10": 0.5151964418087472,
+    "coverage@5": 0.3587842846553002
+  },
+  "holdout_5": {
+    "ndcg@20": 0.080320019481079,
+    "ndcg@10": 0.056244807161100446,
+    "ndcg@5": 0.038226117816928445,
+    "recall@20": 0.22184300341296928,
+    "recall@10": 0.12627986348122866,
+    "recall@5": 0.06825938566552901,
+    "coverage@20": 0.6508524833209784,
+    "coverage@10": 0.5070422535211268,
+    "coverage@5": 0.36249073387694586
+  },
+  "holdout_6": {
+    "ndcg@20": 0.08033913135983498,
+    "ndcg@10": 0.06487883392132496,
+    "ndcg@5": 0.04502373617273117,
+    "recall@20": 0.2054794520547945,
+    "recall@10": 0.14383561643835616,
+    "recall@5": 0.0821917808219178,
+    "coverage@20": 0.6241660489251297,
+    "coverage@10": 0.4825796886582654,
+    "coverage@5": 0.33876945885841364
+  },
+  "holdout_7": {
+    "ndcg@20": 0.09452835300504102,
+    "ndcg@10": 0.07065774572029207,
+    "ndcg@5": 0.05026047955640403,
+    "recall@20": 0.2354948805460751,
+    "recall@10": 0.13993174061433447,
+    "recall@5": 0.07508532423208192,
+    "coverage@20": 0.6523350630096367,
+    "coverage@10": 0.513713862120089,
+    "coverage@5": 0.3795404002965159
+  },
+  "holdout_8": {
+    "ndcg@20": 0.08938509794766346,
+    "ndcg@10": 0.05589992841147204,
+    "ndcg@5": 0.03559032196068999,
+    "recall@20": 0.2569444444444444,
+    "recall@10": 0.125,
+    "recall@5": 0.059027777777777776,
+    "coverage@20": 0.6434395848776872,
+    "coverage@10": 0.4981467753891772,
+    "coverage@5": 0.36249073387694586
+  },
+  "holdout_9": {
+    "ndcg@20": 0.07519195008754503,
+    "ndcg@10": 0.05559402246868181,
+    "ndcg@5": 0.03272945624293002,
+    "recall@20": 0.21016949152542372,
+    "recall@10": 0.13220338983050847,
+    "recall@5": 0.061016949152542375,
+    "coverage@20": 0.6352853965900667,
+    "coverage@10": 0.5063009636767977,
+    "coverage@5": 0.3684210526315789
+  }
+}
+
+[2026-01-27 22:29:39,682][__main__][INFO] - Final metrics: {
+  "test/ndcg@20": 0.08540223970655011,
+  "test/ndcg@20_std": 0.008788884419352987,
+  "test/ndcg@20_ci_low": 0.07911505054123263,
+  "test/ndcg@20_ci_high": 0.0916894288718676,
+  "test/ndcg@10": 0.06362386181279843,
+  "test/ndcg@10_std": 0.009465708899833617,
+  "test/ndcg@10_ci_low": 0.056852501581227156,
+  "test/ndcg@10_ci_high": 0.0703952220443697,
+  "test/ndcg@5": 0.044341695777370106,
+  "test/ndcg@5_std": 0.008955565190858727,
+  "test/ndcg@5_ci_low": 0.03793527037106053,
+  "test/ndcg@5_ci_high": 0.05074812118367968,
+  "test/recall@20": 0.2220878573020013,
+  "test/recall@20_std": 0.01861374152620985,
+  "test/recall@20_ci_low": 0.20877238875494517,
+  "test/recall@20_ci_high": 0.23540332584905746,
+  "test/recall@10": 0.13540160429323628,
+  "test/recall@10_std": 0.013855348603178505,
+  "test/recall@10_ci_low": 0.12549008498507663,
+  "test/recall@10_ci_high": 0.14531312360139592,
+  "test/recall@5": 0.07459762144520822,
+  "test/recall@5_std": 0.012406684272847598,
+  "test/recall@5_ci_low": 0.06572241417020977,
+  "test/recall@5_ci_high": 0.08347282872020667,
+  "test/coverage@20": 0.6363232023721276,
+  "test/coverage@20_std": 0.011308281480574108,
+  "test/coverage@20_ci_low": 0.6282337451201389,
+  "test/coverage@20_ci_high": 0.6444126596241163,
+  "test/coverage@10": 0.4974796145292809,
+  "test/coverage@10_std": 0.013081893144053966,
+  "test/coverage@10_ci_low": 0.48812139192528037,
+  "test/coverage@10_ci_high": 0.5068378371332815,
+  "test/coverage@5": 0.35885841363973314,
+  "test/coverage@5_std": 0.012484860590890044,
+  "test/coverage@5_ci_low": 0.3499272823957383,
+  "test/coverage@5_ci_high": 0.367789544883728
+}
+

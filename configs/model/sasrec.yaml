@@ -1,0 +1,25 @@
+_target_: src.models.SASRecModel
+
+name: "sasrec"
+seed: 42
+device: "cuda"
+
+lr: 1e-3
+n_epochs: 1000
+batch_size: 256
+
+hidden_size: 64
+num_blocks: 3
+num_heads: 2
+dropout: 0.2
+seq_len: 200
+
+# SCE params
+# We use reparametrization with alpha and beta coefficients
+# According to original paper
+# So we assign s according to GPU memory budget
+# And bruteforce alpha, beta, bucket_size_y
+s: 1024
+alpha: 1.0
+beta: 16.0
+bucket_size_y: 256    

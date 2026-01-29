@@ -1,0 +1,112 @@
+[2026-01-27 20:53:16,754][__main__][INFO] - Training config:
+dataset:
+  _target_: src.datasets.RecSysDataset
+  name: MovieLens-100K
+  url: https://disk.360.yandex.ru/d/cUBZLP_OoLankw?path=/MovieLens-100K
+model:
+  _target_: src.models.SASRecModel
+  name: sasrec
+  seed: 42
+  device: cuda
+  lr: 0.001
+  n_epochs: 1000
+  batch_size: 256
+  hidden_size: 64
+  num_blocks: 3
+  num_heads: 2
+  dropout: 0.2
+  seq_len: 200
+  s: 1024
+  alpha: 1.0
+  beta: 16.0
+  bucket_size_y: 256
+metrics:
+- _target_: src.metrics.NDCGMetric
+  k: 20
+- _target_: src.metrics.NDCGMetric
+  k: 10
+- _target_: src.metrics.NDCGMetric
+  k: 5
+- _target_: src.metrics.RecallMetric
+  k: 20
+- _target_: src.metrics.RecallMetric
+  k: 10
+- _target_: src.metrics.RecallMetric
+  k: 5
+- _target_: src.metrics.CoverageMetric
+  k: 20
+- _target_: src.metrics.CoverageMetric
+  k: 10
+- _target_: src.metrics.CoverageMetric
+  k: 5
+seed: 42
+max_top_n: 20
+
+
+[2026-01-27 20:53:16,755][__main__][INFO] - Model init: sasrec
+
+[2026-01-27 20:53:16,857][__main__][INFO] - Start training...
+
+[2026-01-27 21:04:19,213][__main__][INFO] - Training completed.
+
+[2026-01-27 21:04:20,045][__main__][INFO] - Final metrics: {
+  "val/ndcg@20": 0.05690790069505926,
+  "val/ndcg@10": 0.035202549092641824,
+  "val/ndcg@5": 0.027997348651473436,
+  "val/recall@20": 0.15555555555555556,
+  "val/recall@10": 0.06666666666666667,
+  "val/recall@5": 0.044444444444444446,
+  "val/coverage@20": 0.5841363973313566,
+  "val/coverage@10": 0.41882876204596,
+  "val/coverage@5": 0.27057079318013344
+}
+
+[2026-01-27 21:04:20,053][__main__][INFO] - Training config:
+dataset:
+  _target_: src.datasets.RecSysDataset
+  name: MovieLens-100K
+  url: https://disk.360.yandex.ru/d/cUBZLP_OoLankw?path=/MovieLens-100K
+model:
+  _target_: src.models.SASRecModel
+  name: sasrec
+  seed: 42
+  device: cuda
+  lr: 0.001
+  n_epochs: 1000
+  batch_size: 256
+  hidden_size: 64
+  num_blocks: 3
+  num_heads: 2
+  dropout: 0.2
+  seq_len: 200
+  s: 1024
+  alpha: 1.0
+  beta: 16.0
+  bucket_size_y: 256
+metrics:
+- _target_: src.metrics.NDCGMetric
+  k: 20
+- _target_: src.metrics.NDCGMetric
+  k: 10
+- _target_: src.metrics.NDCGMetric
+  k: 5
+- _target_: src.metrics.RecallMetric
+  k: 20
+- _target_: src.metrics.RecallMetric
+  k: 10
+- _target_: src.metrics.RecallMetric
+  k: 5
+- _target_: src.metrics.CoverageMetric
+  k: 20
+- _target_: src.metrics.CoverageMetric
+  k: 10
+- _target_: src.metrics.CoverageMetric
+  k: 5
+seed: 42
+max_top_n: 20
+
+
+[2026-01-27 21:04:20,054][__main__][INFO] - Model init: sasrec
+
+[2026-01-27 21:04:20,612][__main__][INFO] - Start training...
+

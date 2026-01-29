@@ -1,0 +1,271 @@
+[2026-01-27 18:47:43,698][__main__][INFO] - Training config:
+dataset:
+  _target_: src.datasets.RecSysDataset
+  name: MovieLens-100K
+  url: https://disk.360.yandex.ru/d/cUBZLP_OoLankw?path=/MovieLens-100K
+model:
+  _target_: src.models.UltraGCN
+  name: ultragcn
+  embedding_dim: 128
+  w1: 1.0e-07
+  w2: 1.0
+  w3: 1.0e-07
+  w4: 1.0
+  negative_weight: 200
+  negative_num: 200
+  gamma: 0.001
+  lambda_reg: 0.0001
+  num_epochs: 2000
+  lr: 0.001
+  batch_size: 1024
+  num_neighbors: 10
+  early_stopping: true
+  tracked_metric: ndcg@10
+metrics:
+- _target_: src.metrics.NDCGMetric
+  k: 20
+- _target_: src.metrics.NDCGMetric
+  k: 10
+- _target_: src.metrics.NDCGMetric
+  k: 5
+- _target_: src.metrics.RecallMetric
+  k: 20
+- _target_: src.metrics.RecallMetric
+  k: 10
+- _target_: src.metrics.RecallMetric
+  k: 5
+- _target_: src.metrics.CoverageMetric
+  k: 20
+- _target_: src.metrics.CoverageMetric
+  k: 10
+- _target_: src.metrics.CoverageMetric
+  k: 5
+seed: 42
+max_top_n: 20
+
+
+[2026-01-27 18:47:43,699][__main__][INFO] - Model init: ultragcn
+
+[2026-01-27 18:47:43,811][__main__][INFO] - Start training...
+
+[2026-01-27 18:49:39,143][__main__][INFO] - Training completed.
+
+[2026-01-27 18:49:39,394][__main__][INFO] - Final metrics: {
+  "val/ndcg@20": 0.05489423883321549,
+  "val/ndcg@10": 0.041617685699916335,
+  "val/ndcg@5": 0.032245144347555064,
+  "val/recall@20": 0.14074074074074075,
+  "val/recall@10": 0.08888888888888889,
+  "val/recall@5": 0.05925925925925926,
+  "val/coverage@20": 0.39436619718309857,
+  "val/coverage@10": 0.2839140103780578,
+  "val/coverage@5": 0.1927353595255745,
+  "additional_cfg_params": {
+    "num_epochs": 120
+  }
+}
+
+[2026-01-27 18:49:39,399][__main__][INFO] - Training config:
+dataset:
+  _target_: src.datasets.RecSysDataset
+  name: MovieLens-100K
+  url: https://disk.360.yandex.ru/d/cUBZLP_OoLankw?path=/MovieLens-100K
+model:
+  _target_: src.models.UltraGCN
+  name: ultragcn
+  embedding_dim: 128
+  w1: 1.0e-07
+  w2: 1.0
+  w3: 1.0e-07
+  w4: 1.0
+  negative_weight: 200
+  negative_num: 200
+  gamma: 0.001
+  lambda_reg: 0.0001
+  num_epochs: 2000
+  lr: 0.001
+  batch_size: 1024
+  num_neighbors: 10
+  early_stopping: true
+  tracked_metric: ndcg@10
+metrics:
+- _target_: src.metrics.NDCGMetric
+  k: 20
+- _target_: src.metrics.NDCGMetric
+  k: 10
+- _target_: src.metrics.NDCGMetric
+  k: 5
+- _target_: src.metrics.RecallMetric
+  k: 20
+- _target_: src.metrics.RecallMetric
+  k: 10
+- _target_: src.metrics.RecallMetric
+  k: 5
+- _target_: src.metrics.CoverageMetric
+  k: 20
+- _target_: src.metrics.CoverageMetric
+  k: 10
+- _target_: src.metrics.CoverageMetric
+  k: 5
+seed: 42
+max_top_n: 20
+
+
+[2026-01-27 18:49:39,400][__main__][INFO] - Model init: ultragcn
+
+[2026-01-27 18:49:39,940][__main__][INFO] - Start training...
+
+[2026-01-27 19:23:44,049][__main__][INFO] - Training completed.
+
+[2026-01-27 19:23:48,181][__main__][INFO] - Holdout metrics: {
+  "holdout_0": {
+    "ndcg@20": 0.0267501595336594,
+    "ndcg@10": 0.020510575086205622,
+    "ndcg@5": 0.012669139980477282,
+    "recall@20": 0.06944444444444445,
+    "recall@10": 0.04513888888888889,
+    "recall@5": 0.020833333333333332,
+    "coverage@20": 0.7605633802816901,
+    "coverage@10": 0.6085989621942179,
+    "coverage@5": 0.4440326167531505
+  },
+  "holdout_1": {
+    "ndcg@20": 0.053113921081903694,
+    "ndcg@10": 0.039853271799777344,
+    "ndcg@5": 0.025840719160737585,
+    "recall@20": 0.1360544217687075,
+    "recall@10": 0.08163265306122448,
+    "recall@5": 0.03741496598639456,
+    "coverage@20": 0.5922905856189771,
+    "coverage@10": 0.4336545589325426,
+    "coverage@5": 0.3194959229058562
+  },
+  "holdout_2": {
+    "ndcg@20": 0.05575573334740657,
+    "ndcg@10": 0.04485941126191496,
+    "ndcg@5": 0.035359819582381984,
+    "recall@20": 0.13058419243986255,
+    "recall@10": 0.0859106529209622,
+    "recall@5": 0.054982817869415807,
+    "coverage@20": 0.4507042253521127,
+    "coverage@10": 0.3172720533728688,
+    "coverage@5": 0.22016308376575242
+  },
+  "holdout_3": {
+    "ndcg@20": 0.06481396168233727,
+    "ndcg@10": 0.04875220568496279,
+    "ndcg@5": 0.037064135996022145,
+    "recall@20": 0.16376306620209058,
+    "recall@10": 0.10104529616724739,
+    "recall@5": 0.0627177700348432,
+    "coverage@20": 0.4062268346923647,
+    "coverage@10": 0.2765011119347665,
+    "coverage@5": 0.1882876204595997
+  },
+  "holdout_4": {
+    "ndcg@20": 0.0693610883486757,
+    "ndcg@10": 0.04841335590406158,
+    "ndcg@5": 0.03339467340698942,
+    "recall@20": 0.18685121107266436,
+    "recall@10": 0.10380622837370242,
+    "recall@5": 0.058823529411764705,
+    "coverage@20": 0.37361008154188285,
+    "coverage@10": 0.2535211267605634,
+    "coverage@5": 0.17197924388435878
+  },
+  "holdout_5": {
+    "ndcg@20": 0.11448629790278907,
+    "ndcg@10": 0.08948422304964193,
+    "ndcg@5": 0.07132670661793916,
+    "recall@20": 0.27303754266211605,
+    "recall@10": 0.17064846416382254,
+    "recall@5": 0.11262798634812286,
+    "coverage@20": 0.3684210526315789,
+    "coverage@10": 0.251297257227576,
+    "coverage@5": 0.1697553743513714
+  },
+  "holdout_6": {
+    "ndcg@20": 0.09647283125529728,
+    "ndcg@10": 0.07487342615307474,
+    "ndcg@5": 0.057425810905581555,
+    "recall@20": 0.22945205479452055,
+    "recall@10": 0.14383561643835616,
+    "recall@5": 0.08904109589041095,
+    "coverage@20": 0.3684210526315789,
+    "coverage@10": 0.2475908080059303,
+    "coverage@5": 0.17197924388435878
+  },
+  "holdout_7": {
+    "ndcg@20": 0.09024486474931416,
+    "ndcg@10": 0.06944277459018616,
+    "ndcg@5": 0.04937900505454874,
+    "recall@20": 0.22525597269624573,
+    "recall@10": 0.14334470989761092,
+    "recall@5": 0.08191126279863481,
+    "coverage@20": 0.35656041512231285,
+    "coverage@10": 0.23943661971830985,
+    "coverage@5": 0.15048183839881393
+  },
+  "holdout_8": {
+    "ndcg@20": 0.06392705141115451,
+    "ndcg@10": 0.048316903964637996,
+    "ndcg@5": 0.03471603697243072,
+    "recall@20": 0.1736111111111111,
+    "recall@10": 0.1111111111111111,
+    "recall@5": 0.06944444444444445,
+    "coverage@20": 0.363232023721275,
+    "coverage@10": 0.2468495181616012,
+    "coverage@5": 0.15937731653076354
+  },
+  "holdout_9": {
+    "ndcg@20": 0.0880792869498597,
+    "ndcg@10": 0.059937926140060625,
+    "ndcg@5": 0.04683487970275619,
+    "recall@20": 0.2440677966101695,
+    "recall@10": 0.1288135593220339,
+    "recall@5": 0.08813559322033898,
+    "coverage@20": 0.3647146034099333,
+    "coverage@10": 0.23869532987398073,
+    "coverage@5": 0.15715344699777614
+  }
+}
+
+[2026-01-27 19:23:48,182][__main__][INFO] - Final metrics: {
+  "test/ndcg@20": 0.07230051962623973,
+  "test/ndcg@20_std": 0.02535613919908174,
+  "test/ndcg@20_ci_low": 0.05416183034097495,
+  "test/ndcg@20_ci_high": 0.09043920891150452,
+  "test/ndcg@10": 0.05444440736345237,
+  "test/ndcg@10_std": 0.01961536432926165,
+  "test/ndcg@10_ci_low": 0.04041242102703771,
+  "test/ndcg@10_ci_high": 0.06847639369986704,
+  "test/ndcg@5": 0.04040109273798648,
+  "test/ndcg@5_std": 0.016557161308932367,
+  "test/ndcg@5_ci_low": 0.028556813052078765,
+  "test/ndcg@5_ci_high": 0.05224537242389419,
+  "test/recall@20": 0.1832121813801932,
+  "test/recall@20_std": 0.061552287044460814,
+  "test/recall@20_ci_low": 0.13918032776356154,
+  "test/recall@20_ci_high": 0.22724403499682488,
+  "test/recall@10": 0.111528718034496,
+  "test/recall@10_std": 0.036480262387310204,
+  "test/recall@10_ci_low": 0.08543231040346697,
+  "test/recall@10_ci_high": 0.13762512566552504,
+  "test/recall@5": 0.06759327993377036,
+  "test/recall@5_std": 0.026823451146992614,
+  "test/recall@5_ci_low": 0.04840493891332833,
+  "test/recall@5_ci_high": 0.08678162095421238,
+  "test/coverage@20": 0.4404744255003705,
+  "test/coverage@20_std": 0.13349338298930324,
+  "test/coverage@20_ci_low": 0.3449790120752261,
+  "test/coverage@20_ci_high": 0.535969838925515,
+  "test/coverage@10": 0.3113417346182358,
+  "test/coverage@10_std": 0.12027337299484223,
+  "test/coverage@10_ci_low": 0.2253033466398639,
+  "test/coverage@10_ci_high": 0.39738012259660765,
+  "test/coverage@5": 0.21527057079318013,
+  "test/coverage@5_std": 0.09455519308874329,
+  "test/coverage@5_ci_low": 0.14762986042008666,
+  "test/coverage@5_ci_high": 0.2829112811662736
+}
+

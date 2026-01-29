@@ -1,0 +1,27 @@
+- name: lr
+  type: categorical
+  choices: [5e-3, 1e-3, 5e-4]
+
+- name: hidden_size
+  type: categorical
+  choices: [32, 64, 128]
+
+- name: num_heads
+  type: categorical
+  choices: [1, 2]
+
+- name: dropout
+  type: categorical
+  choices: [0.2, 0.4]
+
+- name: alpha
+  type: categorical
+  choices: [0.0625, 0.25, 1.0, 4.0, 16.0]
+
+- name: beta
+  type: categorical
+  choices: [0.0625, 0.25, 1.0, 4.0, 16.0]
+
+- name: bucket_size_y
+  type: categorical
+  choices: [64, 128, 256, 512]

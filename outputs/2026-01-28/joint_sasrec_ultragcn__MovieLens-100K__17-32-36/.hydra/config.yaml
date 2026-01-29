@@ -1,0 +1,53 @@
+dataset:
+  _target_: src.datasets.RecSysDataset
+  name: MovieLens-100K
+  url: https://disk.360.yandex.ru/d/cUBZLP_OoLankw?path=/MovieLens-100K
+model:
+  _target_: src.models.joint_sasrec_ultragcn.JointSASRecUltraGCN
+  name: joint_sasrec_ultragcn
+  seed: 42
+  device: cuda
+  lr: 0.001
+  n_epochs: 1000
+  lambda_reg: 0.0001
+  lambda_sas: 1.0
+  lambda_ultra: 0.1
+  batch_size_sas: 256
+  batch_size_ultra: 1024
+  log_step: 100
+  hidden_size: 128
+  seq_len: 200
+  num_blocks: 3
+  num_heads: 2
+  dropout: 0.2
+  w1: 1.0e-07
+  w2: 1.0
+  w3: 1.0e-07
+  w4: 1.0
+  negative_weight: 200
+  negative_num: 200
+  gamma: 0.001
+  num_neighbors: 10
+  early_stopping: true
+  tracked_metric: ndcg@10
+metrics:
+- _target_: src.metrics.NDCGMetric
+  k: 20
+- _target_: src.metrics.NDCGMetric
+  k: 10
+- _target_: src.metrics.NDCGMetric
+  k: 5
+- _target_: src.metrics.RecallMetric
+  k: 20
+- _target_: src.metrics.RecallMetric
+  k: 10
+- _target_: src.metrics.RecallMetric
+  k: 5
+- _target_: src.metrics.CoverageMetric
+  k: 20
+- _target_: src.metrics.CoverageMetric
+  k: 10
+- _target_: src.metrics.CoverageMetric
+  k: 5
+seed: 42
+max_top_n: 20
