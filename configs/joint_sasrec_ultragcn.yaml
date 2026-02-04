@@ -1,5 +1,5 @@
 defaults:
-  - dataset: MovieLens-100K
+  - dataset: MovieLens-1M
   - model: joint_sasrec_ultragcn
   - metrics: base
   - _self_
