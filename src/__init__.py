@@ -27,6 +27,5 @@ __all__ = [
     "NDCGMetric",
     "RecallMetric",
     "Summarizer",
-    "PopularRandom",
     "UltraGCN",
 ]
