@@ -8,7 +8,7 @@ from urllib.parse import urlencode, quote
 import requests
 
 
-PUBLIC_FOLDER_URL = "https://disk.360.yandex.ru/d/_og7MLe5l6cP0w"
+PUBLIC_FOLDER_URL = "https://disk.yandex.ru/d/Zkc8osgkce300A"
 SPLITS_PUBLIC_FOLDER_URL = "error, please set via cmd arg"
 TEMP_DATA_DIR = "data_parsed"
 CONFIGS_DATASET_DIR = Path("configs") / "dataset"
