@@ -15,7 +15,6 @@ from .metrics import (
 )
 
 from .models import (
-    PopularRandom,
     UltraGCN
 )
 
